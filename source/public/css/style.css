@@ -1,0 +1,60 @@
+h1{
+    background-color:#FAFAD2;
+    color:#000000;
+    font-size:30px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    text-align: center;
+}
+
+table{
+    margin :auto;
+    border-collapse: collapse;
+}
+
+th,td{
+    border:solid 1px;
+    padding:5px;
+}
+
+td{
+    width:300px;
+}
+
+.container{
+    width:700px;
+    padding:5px;
+    margin: 2em auto;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control{
+    margin-bottom:10px;
+}
+
+input[type="text"]{
+    width:300px;
+}
+
+textarea{
+    width:300px;
+}
+
+input[type="submit"]{
+    width:300px;
+}
+
+label{
+    margin-right: 20px;
+    width:100px;
+    float:left;
+}
+
