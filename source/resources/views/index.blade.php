@@ -8,15 +8,19 @@
     <input type="submit" value="検索"  style="width:100px">
 </form>
 
-<form action="{{route('book.index')}}" method="get">
-    @csrf
-    <select name="sort" id="sort" onchange="submit(this.form)">
-        <option value="1">指定なし</option>
-        <option value="2">登録日（昇順）</option>
-        <option value="3">登録日（降順）</option>
-        <option value="4">ジャンル</option>
-    </select>
-</form>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{$sortword}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form action="{{route('book.index')}}" method="get">
+            <button type="submit" class="dropdown-item" name="sort" value="1">タイトル</button>
+            <button type="submit" class="dropdown-item" name="sort" value="2">著者：昇順</button>
+            <button type="submit" class="dropdown-item" name="sort" value="3">著者：降順</button>
+        </form>
+    </div>
+</div>
+
 <a class="btn" href="{{route('book.create')}}">+ 本を追加する。</a>
 
 
