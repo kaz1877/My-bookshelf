@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<a class="btn" href="{{route('book.create')}}">+ 本を追加する。</a>
+<a class="btn" href="{{route('book.store')}}">+ 本を追加する。</a>
 
 
 <div class="container">
