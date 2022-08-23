@@ -7,30 +7,41 @@
 </form>
  
 @if ($items == null)
-    <p>書籍名を入力してください。</p>
+    <p style="margin-top: 40px;">書籍名を入力してください。</p>
 @else (count($items) > 0)
     <p>「{{ $keyword }}」の検索結果</p>
-    <hr>
     @foreach ($items as $item)
-        <h2>{{ $item['volumeInfo']['title']}}</h2>
-            @if (array_key_exists('imageLinks', $item['volumeInfo']))
-                <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail']}}"><br>
-            @endif
-                                
-            @if (array_key_exists('description', $item['volumeInfo']))
-                著者：{{ $item['volumeInfo']['authors'][0]}}<br>
-            @endif
-            @if (array_key_exists('description', $item['volumeInfo']))
-                発売年月：{{ $item['volumeInfo']['publishedDate']}}<br>
-            @endif
-            <br>
-            @if (array_key_exists('description', $item['volumeInfo']))
-                概要：{{ $item['volumeInfo']['description']}}<br>
-            @endif
-            <br>
-            <hr>
-        @endforeach
-    @endif
+        <div class="listgroup">
+            <div class="list_title">
+                {{ $item['volumeInfo']['title']}}
+            </div>
+            <div class="list_image">
+                @if (array_key_exists('imageLinks', $item['volumeInfo']))
+                    <img src="{{ $item['volumeInfo']['imageLinks']['smallThumbnail']}}">
+                @endif
+            </div>
+            
+            <div class="list_contents">
+                <div class="list_details">
+                    @if (array_key_exists('description', $item['volumeInfo']))
+                        <p>著者：{{ $item['volumeInfo']['authors'][0]}}</p>
+                    @endif
+                    @if (array_key_exists('description', $item['volumeInfo']))
+                        <p>発売年月：{{ $item['volumeInfo']['publishedDate']}}</p>
+                    @endif
+                    <!-- @if (array_key_exists('description', $item['volumeInfo']))
+                        概要：{{ $item['volumeInfo']['description']}}<br>
+                    @endif -->
+                </div>
+                <div class="buttons">
+                    <form action="" method="post">
+                        <button type="submit">本棚に追加する。</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+@endif
 @endsection
 
 @section("footer")
