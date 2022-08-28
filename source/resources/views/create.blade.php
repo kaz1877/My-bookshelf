@@ -14,7 +14,7 @@
         @csrf
         <input class="form-control" type="text" name="title" placeholder="題名"><br>
         <input class="form-control" type="text" name="author" placeholder="著者"><br>
-        <input class="form-control" type="text" name="publisher" placeholder="出版社"><br>
+        <input class="form-control" type="text" name="url" placeholder="画像url"><br>
         <input class="form-control" type="text" name="type" placeholder="カテゴリー"><br>
         <textarea id="" class="form-control" name="content" rows="4" placeholder="コメント"></textarea><br>
         <input class="form-contorl" type="submit" value="送信">

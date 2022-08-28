@@ -34,7 +34,8 @@
                     @endif -->
                 </div>
                 <div class="buttons">
-                    <form action="" method="post">
+                    <form action="{{route('book.create')}}" method="get">
+                        @csrf
                         <button type="submit">本棚に追加する。</button>
                     </form>
                 </div>
