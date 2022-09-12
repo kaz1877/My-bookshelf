@@ -17,7 +17,7 @@
         <input class="form-control" type="text" name="url" placeholder="画像url"><br>
         <input class="form-control" type="text" name="type" placeholder="カテゴリー"><br>
         <textarea id="" class="form-control" name="content" rows="4" placeholder="コメント"></textarea><br>
-        <input class="form-contorl" type="submit" value="送信">
+        <input class="form-control" type="submit" value="送信">
     </form>
 </div>
 @endsection

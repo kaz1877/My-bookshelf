@@ -5,7 +5,7 @@
 <form action="/api" method="get">
     書籍名:<input type="text" name="keyword" size="50" value="{{ $keyword }}">&nbsp;<input type="submit" value="検索">
 </form>
- 
+
 @if ($items == null)
     <p style="margin-top: 40px;">書籍名を入力してください。</p>
 @else (count($items) > 0)
@@ -20,7 +20,7 @@
                     <img src="{{ $item['volumeInfo']['imageLinks']['smallThumbnail']}}">
                 @endif
             </div>
-            
+
             <div class="list_contents">
                 <div class="list_details">
                     @if (array_key_exists('description', $item['volumeInfo']))
@@ -48,4 +48,3 @@
 @section("footer")
 copyright 2022 tsunoda.
 @endsection
-
