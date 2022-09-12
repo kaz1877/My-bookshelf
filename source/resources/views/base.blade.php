@@ -13,10 +13,11 @@
     @yield("head")
 </head>
 <body>
-    <a href="{{route('book.index')}}"><h1>My BookStand</h1></a>
-    <div class="header">
-        @yield('header')
-    </div>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="h2">
+            <a class="navbar-brand" href="{{route('book.index')}}">My BookStand</a>
+        </h1>
+    </header>
     <div class="container">
         @yield("main")
     </div>

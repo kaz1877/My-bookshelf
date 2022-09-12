@@ -37,7 +37,7 @@ class bookController extends Controller
                 $books = $query->get();
                 break;
         }
-        $context = ["books" => $books,"keyword"=>$keyword,"sortword"=>$sortword];
+        $context = ['books' => $books,'keyword'=>$keyword,'sortword'=>$sortword];
         return view('index',$context);
     }
 
