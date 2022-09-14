@@ -33,7 +33,15 @@ class ApiController extends Controller
         return view('api', $data);
     }
 
-    public function apiCreate(){
-        
+    public function apiCreate(Request $request){
+        $title = $request->input('title');
+        $author = $request->input('author');
+        $url = $request->input('url');
+        $book=[
+            'title' => $title,
+            'author' => $author,
+            'url' => $url
+        ];
+        return view('create',['book'=>$book]);
     }
 }

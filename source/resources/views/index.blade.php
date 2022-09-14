@@ -3,14 +3,14 @@
 @section("main")
 <form action="{{route('book.index')}}" method="get">
     <label id="keyword">題名</label>
-    <input type="text"  name="keyword" id="keyword" placeholder="検索ワード" sytle="width:200px;" value="{{$keyword}}">
+    <input type="text"  name="keyword" id="keyword" placeholder="検索ワード" style="width:200px;" value="{{$keyword}}">
     @csrf
     <input type="submit" value="検索"  style="width:100px">
 </form>
 
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {{$sortword}}
+    {{$sortWord}}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <form action="{{route('book.index')}}" method="get">

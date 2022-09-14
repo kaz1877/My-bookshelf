@@ -13,7 +13,7 @@ class bookController extends Controller
     {
         $keyword = $request->input('keyword');
         $select = $request ->sort;
-        $sortword ="並び替え";
+        $sortWord ="並び替え";
         $query = Book::query();
         if(!empty($keyword)){
             $query->where('title','LIKE','%'.$keyword.'%')
@@ -23,21 +23,21 @@ class bookController extends Controller
         switch($select){
             case '1':
                 $books = $query->orderBy('title','asc')->get();
-                $sortword ="タイトル";
+                $sortWord ="タイトル";
                 break;
             case '2':
                 $books = $query->orderBy('publisher','asc')->get();
-                $sortword="著者：昇順";
+                $sortWord="著者：昇順";
                 break;
             case '3':
                 $books = $query->orderBy('publisher','desc')->get();
-                $sortword="著者：降順";
+                $sortWord="著者：降順";
                 break;
             default:
                 $books = $query->get();
                 break;
         }
-        $context = ['books' => $books,'keyword'=>$keyword,'sortword'=>$sortword];
+        $context = ['books' => $books,'keyword'=>$keyword,'sortWord'=>$sortWord];
         return view('index',$context);
     }
 
