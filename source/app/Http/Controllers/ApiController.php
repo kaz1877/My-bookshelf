@@ -37,11 +37,11 @@ class ApiController extends Controller
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');
-        $book=[
-            'title' => $title,
-            'author' => $author,
-            'url' => $url
-        ];
-        return view('create',['book'=>$book]);
+        // $book=[
+        //     'title' => $title,
+        //     'author' => $author,
+        //     'url' => $url
+        // ];
+        return view('create',compact('title','author','url'));
     }
 }

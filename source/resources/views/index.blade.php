@@ -25,32 +25,21 @@
 
 
 <div class="container">
-    <table>
-        <tr>
-            <th>題名</th>
-            <th>著者</th>
-            <th>ジャンル</th>
-            <th></th>
-            <th></th>
-        </tr>
         @forelse($books as $book)
-        <tr>
-            <td><a href="{{route('book.show',$book->id)}}">{{$book->title}}</a></td>
-            <td>{{$book->author}}</td>
-            <td>{{$book->type}}</td>
-            <td><a href="{{route('book.edit',$book->id)}}">編集</a></td>
-            <td>
-                <form action="{{route('book.destroy',$book->id)}}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <button class="btn" type="submit">削除</button>
-                </form>
-            </td>
-        </tr>
+            <div class="">
+            @if(isset($book->url))
+                <img src= "{{$book->url}}">
+            @else
+                <img src= "{{asset('storage/l_e_others_500.jpg')}}">
+            @endif
+            <?php var_dump(isset($book->url)) ?>
+            </div>
+            <div class="">
+                <a href="{{route('book.show',$book->id)}}">{{$book->title}}</a>
+            </div>
         @empty
         <p>登録はありません</p>
         @endforelse
-    </table>
 </div>
 
 @endsection

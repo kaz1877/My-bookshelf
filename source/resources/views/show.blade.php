@@ -5,10 +5,16 @@
 
 @forelse($books as $book)
 <div class="container">
+    <div class="">
+        @if(isset($book->url))
+            <img src= "{{$book->url}}">
+        @else
+            <img src="{{asset('storage/l_e_others_500.jpg')}}">
+        @endif
+    </div>
     <table>
         <tr><th>題名</th><td>{{$book->title}}</td></tr>
         <tr><th>著者</th><td>{{$book->author}}</td></tr>
-        <tr><th>出版社</th><td>{{$book->publisher}}</td></tr>
         <tr><th>カテゴリー</th><td>{{$book->type}}</td></tr>
         <tr><th>コメント</th><td>{{$book->content}}</td></tr>
     </table>
