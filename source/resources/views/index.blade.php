@@ -3,14 +3,14 @@
 @section("main")
 <form action="{{route('book.index')}}" method="get">
     <label id="keyword">題名</label>
-    <input type="text"  name="keyword" id="keyword" placeholder="検索ワード" sytle="width:200px;" value="{{$keyword}}">
+    <input type="text"  name="keyword" id="keyword" placeholder="検索ワード" style="width:200px;" value="{{$keyword}}">
     @csrf
     <input type="submit" value="検索"  style="width:100px">
 </form>
 
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {{$sortword}}
+    {{$sortWord}}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <form action="{{route('book.index')}}" method="get">
@@ -25,32 +25,20 @@
 
 
 <div class="container">
-    <table>
-        <tr>
-            <th>題名</th>
-            <th>著者</th>
-            <th>ジャンル</th>
-            <th></th>
-            <th></th>
-        </tr>
         @forelse($books as $book)
-        <tr>
-            <td><a href="{{route('book.show',$book->id)}}">{{$book->title}}</a></td>
-            <td>{{$book->author}}</td>
-            <td>{{$book->type}}</td>
-            <td><a href="{{route('book.edit',$book->id)}}">編集</a></td>
-            <td>
-                <form action="{{route('book.destroy',$book->id)}}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <button class="btn" type="submit">削除</button>
-                </form>
-            </td>
-        </tr>
+            <div class="">
+            @if($book->url !== null)
+                <img src= "{{$book->url}}" >
+            @else
+                <img src= "{{asset('storage/images/e_others_501.png')}}" >
+            @endif
+            </div>
+            <div class="">
+                <a href="{{route('book.show',$book->id)}}">{{$book->title}}</a>
+            </div>
         @empty
         <p>登録はありません</p>
         @endforelse
-    </table>
 </div>
 
 @endsection
