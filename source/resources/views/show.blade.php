@@ -5,11 +5,11 @@
 
 @forelse($books as $book)
 <div class="container">
-    <div class="">
-        @if(isset($book->url))
-            <img src= "{{$book->url}}">
+    <div >
+        @if($book->url !== null)
+            <img src= "{{$book->url}}" class="rounded mx-auto d-block mb-4">
         @else
-            <img src="{{asset('storage/l_e_others_500.jpg')}}">
+            <img src= "{{asset('storage/images/m_e_others_501.png')}}" class="rounded mx-auto d-block mb-4" >
         @endif
     </div>
     <table>
@@ -22,7 +22,7 @@
 @empty
 <p>登録はありません</p>
 @endforelse
-<a href="#" class="btn" onclick='window.history.back(-1);'>戻る</a>
+<a href="#" class="btn btn-primary mb-4" onclick='window.history.back(-1);'>戻る</a>
 @endsection
 
 @section("footer")

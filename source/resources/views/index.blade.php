@@ -27,12 +27,11 @@
 <div class="container">
         @forelse($books as $book)
             <div class="">
-            @if(isset($book->url))
-                <img src= "{{$book->url}}">
+            @if($book->url !== null)
+                <img src= "{{$book->url}}" >
             @else
-                <img src= "{{asset('storage/l_e_others_500.jpg')}}">
+                <img src= "{{asset('storage/images/e_others_501.png')}}" >
             @endif
-            <?php var_dump(isset($book->url)) ?>
             </div>
             <div class="">
                 <a href="{{route('book.show',$book->id)}}">{{$book->title}}</a>
