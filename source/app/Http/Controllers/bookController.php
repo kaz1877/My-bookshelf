@@ -47,7 +47,24 @@ class bookController extends Controller
 
     public function store(Request $request)
     {
-        Book::create($request->all());
+        if(request('image')){
+            $dir ='images';
+            //ファイル名を指定
+            $file_name = $request->file('image')->getClientOriginalName();
+            //ファイルパスを設定
+            $file_path = 'public/' . $dir . $file_name;
+            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
+            //DBに保存
+            Book::create([
+                'title' => $request->input('title'),
+                'author' => $request->input('author'),
+                'url' => $file_path,
+                'type' => $request->input('type'),
+                'content' => $request->input('content')
+            ]);
+        }else{
+            Book::create($request->all());
+        }
         return redirect(route("book.index"));
     }
 

@@ -35,6 +35,7 @@ class ApiController extends Controller
     }
 
     public function apiCreate(Request $request){
+        //apiからの情報をcreateに渡す
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');
