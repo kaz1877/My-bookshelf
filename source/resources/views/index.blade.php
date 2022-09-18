@@ -2,8 +2,7 @@
 
 @section("main")
 <form action="{{route('book.index')}}" method="get">
-    <label id="keyword">題名</label>
-    <input type="text"  name="keyword" id="keyword" placeholder="検索ワード" style="width:200px;" value="{{$keyword}}">
+    <input type="text"  name="keyword"  placeholder="検索ワード" style="width:200px;" value="{{$keyword}}">
     @csrf
     <input type="submit" value="検索"  style="width:100px">
 </form>
@@ -41,8 +40,4 @@
         @endforelse
 </div>
 
-@endsection
-
-@section("footer")
-copyright 2022 tsunoda.
 @endsection

@@ -21,8 +21,10 @@
     <div class="container">
         @yield("main")
     </div>
-    <div class="footer">
-        @yield('footer')
-    </div>
+    <footer class="footer bg-light">
+        <div class="container text-center">
+            <p class="text-muted">copyright 2022 tsunoda.</p>
+        </div>
+    </footer>
 </body>
 </html>

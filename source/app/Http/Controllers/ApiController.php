@@ -10,7 +10,8 @@ class ApiController extends Controller
     public function index(Request $request){
         $data = [];
         $items = null;
-        if (!empty($request->keyword))
+        $keyword = $request->keyword;
+        if (!empty($keyword))
         {
             // 日本語で検索するためにURLエンコードする
             $title = urlencode($request->keyword);
@@ -25,23 +26,18 @@ class ApiController extends Controller
             // 書籍情報部分を取得
             $items = $bodyArray['items'];
         }
-        $data = [
-            'items' => $items,
-            'keyword' => $request->keyword,
-        ];
+        // $data = [
+        //     'items' => $items,
+        //     'keyword' => $request->keyword,
+        // ];
 
-        return view('api', $data);
+        return view('api', compact('items','keyword'));
     }
 
     public function apiCreate(Request $request){
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');
-        // $book=[
-        //     'title' => $title,
-        //     'author' => $author,
-        //     'url' => $url
-        // ];
         return view('create',compact('title','author','url'));
     }
 }

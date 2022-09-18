@@ -6,7 +6,8 @@
     書籍名:<input type="text" name="keyword" size="50" value="{{ $keyword }}">&nbsp;
     <input type="submit" value="検索">
 </form>
-
+<a href="#" class="btn btn-primary mb-4" onclick='window.history.back(-1);'>戻る</a>
+<p>本が見つからない場合は<a href="{{route('book.create')}}">こちら</a></p>
 @if ($items == null)
     <p style="margin-top: 40px;">書籍名を入力してください。</p>
 @else (count($items) > 0)
@@ -46,8 +47,4 @@
         </div>
     @endforeach
 @endif
-@endsection
-
-@section("footer")
-copyright 2022 tsunoda.
 @endsection

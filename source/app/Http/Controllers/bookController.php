@@ -18,7 +18,7 @@ class bookController extends Controller
         if(!empty($keyword)){
             $query->where('title','LIKE','%'.$keyword.'%')
                 ->orWhere('author','LIKE','%'.$keyword.'%')
-                ->orwhere('publisher','LIKE','%'.$keyword.'%');
+                ->orWhere('publisher','LIKE','%'.$keyword.'%');
         }
         switch($select){
             case '1':
@@ -37,8 +37,7 @@ class bookController extends Controller
                 $books = $query->get();
                 break;
         }
-        $context = ['books' => $books,'keyword'=>$keyword,'sortWord'=>$sortWord];
-        return view('index',$context);
+        return view('index',compact('books','keyword','sortWord'));
     }
 
     public function create()
@@ -62,8 +61,7 @@ class bookController extends Controller
     public function edit($id)
     {
         $books = Book::where('id',$id)->get();
-        $content = ['books'=>$books];
-        return view('edit',$content);
+        return view('edit',compact('books'));
     }
 
     public function update(Request $request, $id)
