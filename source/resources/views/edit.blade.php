@@ -39,7 +39,3 @@
 <p>登録はありません</p>
 @endforelse
 @endsection
-
-@section("footer")
-copyright 2022 tsunoda.
-@endsection

@@ -15,16 +15,16 @@
         <div class="form-group">
             <label for="title">題名</label>
             <input class="form-control w-75" type="text"
-            id="title" name="title" placeholder="題名" value="{{$title}}">
+            id="title" name="title" placeholder="題名" value="{{isset($title) ? $title : ''}}">
         </div>
         <div class="form-group">
             <label for="author">著者</label>
             <input class="form-control w-75" type="text"
-            id="author" name="author" placeholder="著者" value="{{$author}}">
+            id="author" name="author" placeholder="著者" value="{{isset($author) ? $author : ''}}">
         <div class="form-group">
             <label for="url">画像URL</label>
             <input class="form-control w-75" type="text"
-            id="url" name="url" placeholder="URL" value="{{$url}}">
+            id="url" name="url" placeholder="URL" value="{{isset($url) ? $url : ''}}">
         </div>
         <div class="form-group">
             <label for="type">カテゴリー</label>

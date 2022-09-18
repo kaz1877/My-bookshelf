@@ -24,7 +24,3 @@
 @endforelse
 <a href="#" class="btn btn-primary mb-4" onclick='window.history.back(-1);'>戻る</a>
 @endsection
-
-@section("footer")
-copyright 2022 tsunoda.
-@endsection
