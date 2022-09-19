@@ -17,9 +17,9 @@ class BookTable extends Migration
             $table -> id();
             $table -> string('title',100);
             $table -> string('author',100);
-            $table -> string('url',500);
+            $table -> string('url',1000)->nullable();
             $table -> string('type',50);
-            $table -> text('content',100);
+            $table -> text('content')->nullable();
             $table -> timestamps();
 
         });

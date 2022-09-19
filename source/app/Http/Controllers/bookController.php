@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
-
+use App\Http\Requests\BookRequest;
 
 class bookController extends Controller
 {
@@ -81,7 +81,7 @@ class bookController extends Controller
         return view('edit',compact('books'));
     }
 
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
     {
         Book::find($id)->update($request->all());
         return redirect(route('book.index'));
