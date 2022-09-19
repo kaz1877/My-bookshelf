@@ -10,7 +10,7 @@
 </ul>
 @endif
 <div class="container">
-    <form class="" action="{{route('book.store')}}" method="POST">
+    <form class="" action="{{route('book.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="">
             @if($url !== null)

@@ -47,12 +47,12 @@ class bookController extends Controller
 
     public function store(Request $request)
     {
-        if(request('image')){
+        if($request->image){
             $dir ='images';
             //ファイル名を指定
             $file_name = $request->file('image')->getClientOriginalName();
             //ファイルパスを設定
-            $file_path = 'public/' . $dir . $file_name;
+            $file_path = 'storage/' . $dir .'/'. $file_name;
             $request -> file('image')-> storeAs('public/' . $dir,$file_name);
             //DBに保存
             Book::create([
