@@ -45,7 +45,7 @@ class bookController extends Controller
         return view('create');
     }
 
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         if($request->image){
             $dir ='images';

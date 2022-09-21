@@ -22,23 +22,27 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:100',
-            'author' => 'required|string|max:100',
-            'type' => 'required|max:50',
-            'content' => 'max:2000',
+            'title' => 'required|max:100|regex:/^[^#<>^;_]*$/',
+            'author' => 'required|max:100|regex:/^[^#<>^;_]*$/',
+            'type' => 'required|max:50|regex:/^[^#<>^;_]*$/',
+            'content' => 'nullable|max:2000|regex:/^[^#<>^;_]*$/'
         ];
     }
 
-    public function message(){
+    public function messages(){
         return [
             'title.required' => 'タイトルは必ず入力してください。',
             'title.max' => 'タイトルは100文字以下で入力してください。',
+            'title.regex' => '使用禁止記号#<>^;_を消してください',
             'author.required' => '著者は必ず入力してください。',
             'author.string' => '著者は文字列で入力してください。',
             'author.max' => '著者は100文字以下で入力してください。',
+            'author.regex' => '使用禁止記号#<>^;_を消してください',
             'type.required' => 'カテゴリーは必ず入力してください。',
             'type.max' => 'カテゴリーは50文字以下で入力してください。',
-            'content.max' =>'コメントは2000文字以下で入力してください。'
+            'type.regex' => '使用禁止記号#<>^;_を消してください',
+            'content.max' =>'コメントは2000文字以下で入力してください。',
+            'content.regex' => '使用禁止記号#<>^;_を消してください'
         ];
     }
 
