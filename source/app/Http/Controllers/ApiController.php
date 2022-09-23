@@ -26,15 +26,11 @@ class ApiController extends Controller
             // 書籍情報部分を取得
             $items = $bodyArray['items'];
         }
-        // $data = [
-        //     'items' => $items,
-        //     'keyword' => $request->keyword,
-        // ];
-
         return view('api', compact('items','keyword'));
     }
 
     public function apiCreate(Request $request){
+        //apiからの情報をcreateに渡す
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');

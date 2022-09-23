@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
-
+use App\Http\Requests\BookRequest;
 
 class bookController extends Controller
 {
@@ -45,9 +45,26 @@ class bookController extends Controller
         return view('create');
     }
 
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        Book::create($request->all());
+        if($request->image){
+            $dir ='images';
+            //ファイル名を指定
+            $file_name = $request->file('image')->getClientOriginalName();
+            //ファイルパスを設定
+            $file_path = 'storage/' . $dir .'/'. $file_name;
+            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
+            //DBに保存
+            Book::create([
+                'title' => $request->input('title'),
+                'author' => $request->input('author'),
+                'url' => $file_path,
+                'type' => $request->input('type'),
+                'content' => $request->input('content')
+            ]);
+        }else{
+            Book::create($request->all());
+        }
         return redirect(route("book.index"));
     }
 
@@ -64,7 +81,7 @@ class bookController extends Controller
         return view('edit',compact('books'));
     }
 
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
     {
         Book::find($id)->update($request->all());
         return redirect(route('book.index'));
