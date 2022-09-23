@@ -26,11 +26,6 @@ class ApiController extends Controller
             // 書籍情報部分を取得
             $items = $bodyArray['items'];
         }
-        // $data = [
-        //     'items' => $items,
-        //     'keyword' => $request->keyword,
-        // ];
-
         return view('api', compact('items','keyword'));
     }
 
@@ -39,6 +34,6 @@ class ApiController extends Controller
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');
-        return view('create',compact('title','author','url'));
+        return route('book.create',compact('title','author','url'));
     }
 }

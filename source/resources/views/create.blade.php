@@ -17,6 +17,9 @@
         <div class="form-group">
             <label>本のサムネイル画像を変更する。</label>
             <input id="image" type="file" name="image">
+            @error('image')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
             <input type="hidden" name="url" value="{{$url ?? old('url')}}">
         </div>
         <div class="form-group">
