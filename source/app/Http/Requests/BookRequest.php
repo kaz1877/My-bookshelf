@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BookRequest extends FormRequest
 {
-    public $redirectRoute = 'book.create';
+    // public $redirectRoute = 'book.create';
 
     public function authorize()
     {
