@@ -14,12 +14,14 @@ class BookTable extends Migration
     public function up()
     {
         Schema::create('books',function(Blueprint $table){
-            $table -> id();
+            $table -> bigIncrements('id');
             $table -> string('title',100);
             $table -> string('author',100);
             $table -> string('url',1000)->nullable();
             $table -> string('type',50);
             $table -> text('content')->nullable();
+            $table -> unsignedBigInteger('user_id');
+            $table -> foreign('user_id')->references('id')->on('users');
             $table -> timestamps();
 
         });
