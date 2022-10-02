@@ -20,9 +20,5 @@ Route::prefix('book')->group(function(){
     Route::get('{book}',[bookController::class,'show'])->name('book.show');
 });
 
-Route::get('/api',[ApiController::class,'index']);
-Route::post('/api',[ApiController::class,'apiCreate']);
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
