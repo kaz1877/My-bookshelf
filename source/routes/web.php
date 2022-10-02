@@ -13,11 +13,16 @@ use App\Http\Requests\BookRequest;
 // Route::put('/book/{id}', [bookController::class, 'update'])->name('book.update');
 // Route::delete('/book/{id}', [bookController::class, 'destroy'])->name('book.destroy');
 
-Route::get('/',[bookController::class,'index'])->name('book.index');
-Route::resource('/book',bookController::class)->except(['index','show']);
+Route::get('/',function(){
+    return view('welcome');
+});
+
+Route::resource('/book',bookController::class)->except(['show'])->middleware('auth');
 Route::prefix('book')->group(function(){
-    Route::get('search',[bookController::class,'searchBooks'])->name('book.search');
-    Route::get('{book}',[bookController::class,'show'])->name('book.show');
+    Route::middleware('auth')->group(function(){
+        Route::get('search',[bookController::class,'searchBooks'])->name('book.search');
+        Route::get('{book}',[bookController::class,'show'])->name('book.show');
+    });
 });
 
 Auth::routes();

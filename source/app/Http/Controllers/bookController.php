@@ -15,7 +15,7 @@ class bookController extends Controller
         $keyword = $request->input('keyword');
         $select = $request ->sort;
         $sortWord ="並び替え";
-        $query = Book::query();
+        $query = Book::where('user_id', \Auth::user()->id)->get();
         if(!empty($keyword)){
             $query->where('title','LIKE','%'.$keyword.'%')
                 ->orWhere('author','LIKE','%'.$keyword.'%')
@@ -35,7 +35,7 @@ class bookController extends Controller
                 $sortWord="著者：降順";
                 break;
             default:
-                $books = $query->get();
+                $books = $query;
                 break;
         }
         return view('books.index',compact('books','keyword','sortWord'));
@@ -49,7 +49,7 @@ class bookController extends Controller
         return view('books.create',compact('title','author','url'));
     }
 
-    public function store(BookRequest $request)
+    public function store(BookRequest $request,Book $book)
     {
         if($request->image){
             $dir ='images';
@@ -59,16 +59,21 @@ class bookController extends Controller
             $file_path = 'storage/' . $dir .'/'. $file_name;
             $request -> file('image')-> storeAs('public/' . $dir,$file_name);
             //DBに保存
-            Book::create([
-                'title' => $request->input('title'),
-                'author' => $request->input('author'),
-                'url' => $file_path,
-                'type' => $request->input('type'),
-                'content' => $request->input('content')
-            ]);
+            $book->title = $request->title;
+            $book->author = $request->author;
+            $book->url = $file_path;
+            $book->type = $request->type;
+            $book->content = $request ->content;
+            $book->user_id = $request->user()->id;
         }else{
-            Book::create($request->all());
+            $book->title = $request->title;
+            $book->author = $request->author;
+            $book->url = $request->url;
+            $book->type = $request->type;
+            $book->content = $request ->content;
+            $book->user_id = $request->user()->id;
         }
+        $book->save();
         return redirect(route("book.index"));
     }
 
