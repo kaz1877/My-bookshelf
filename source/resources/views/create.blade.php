@@ -15,6 +15,9 @@
             @endif
         </div>
         <div class="form-group">
+            <a href="{{route('book.search')}}">本を検索する。</a>
+        </div>
+        <div class="form-group">
             <label>本のサムネイル画像を変更する。</label>
             <input id="image" type="file" name="image">
             @error('image')

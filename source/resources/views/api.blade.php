@@ -7,13 +7,12 @@
     <input type="submit" value="検索">
 </form>
 <a href="#" class="btn btn-primary mb-4" onclick='window.history.back(-1);'>戻る</a>
-<p>本が見つからない場合は<a href="{{route('book.create')}}">こちら</a></p>
 @if ($items == null)
     <p style="margin-top: 40px;">書籍名を入力してください。</p>
 @else (count($items) > 0)
     <p>「{{ $keyword }}」の検索結果</p>
     @foreach ($items as $item)
-        <form action="/api" method="POST">
+        <form action="{{route('book.create')}}" method="GET">
         @csrf
             <div class="listgroup">
                 <div class="list_title">

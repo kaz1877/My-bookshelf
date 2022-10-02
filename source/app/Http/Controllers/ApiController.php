@@ -34,6 +34,6 @@ class ApiController extends Controller
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');
-        return view('create',compact('title','author','url'));
+        return redirect()->route('book.create',compact('title','author','url'));
     }
 }
