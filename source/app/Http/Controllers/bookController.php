@@ -38,7 +38,7 @@ class bookController extends Controller
                 $books = $query->get();
                 break;
         }
-        return view('index',compact('books','keyword','sortWord'));
+        return view('books.index',compact('books','keyword','sortWord'));
     }
 
     public function create(Request $request)
@@ -46,7 +46,7 @@ class bookController extends Controller
         $title = $request->input('title');
         $author = $request->input('author');
         $url = $request->input('url');
-        return view('create',compact('title','author','url'));
+        return view('books.create',compact('title','author','url'));
     }
 
     public function store(BookRequest $request)
@@ -76,13 +76,13 @@ class bookController extends Controller
     {
         $context = [];
         $context["books"] = Book::where("id",$id)->get();
-        return view('show',$context);
+        return view('books.show',$context);
     }
 
     public function edit($id)
     {
         $books = Book::where('id',$id)->get();
-        return view('edit',compact('books'));
+        return view('books.edit',compact('books'));
     }
 
     public function update(BookRequest $request, $id)
@@ -116,7 +116,7 @@ class bookController extends Controller
             // 書籍情報部分を取得
             $items = $bodyArray['items'];
         }
-        return view('api', compact('items','keyword'));
+        return view('books.api', compact('items','keyword'));
     }
 
 }

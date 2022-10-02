@@ -22,3 +22,7 @@ Route::prefix('book')->group(function(){
 
 Route::get('/api',[ApiController::class,'index']);
 Route::post('/api',[ApiController::class,'apiCreate']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
