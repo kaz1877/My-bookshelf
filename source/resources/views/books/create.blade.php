@@ -2,6 +2,8 @@
 
 @section("main")
 
+@include('nav')
+
 <div class="container">
     <form class="" action="{{route('book.store')}}" method="POST" enctype="multipart/form-data">
         @csrf

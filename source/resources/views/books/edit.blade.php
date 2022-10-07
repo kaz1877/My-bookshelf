@@ -2,6 +2,8 @@
 
 @section("main")
 
+@include('nav')
+
 @forelse($books as $book)
 <div class="container">
     <form action="{{route('book.update',$book->id)}}" method="post">
