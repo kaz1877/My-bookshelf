@@ -5,19 +5,20 @@
         book
     </a>
 
-    <ul class="navbar-nav ml-auto">
-    @guest
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('register')}}">ユーザ登録</a>
-        </li>
-    @endguest
-    @guest
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('login')}}">ログイン</a>
-        </li>
-    @endguest
 
     @auth
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="">testest</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">testest</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">testest</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <form action="{{route('book.search')}}" method="GET" class="form-inline">
                 @csrf
@@ -52,5 +53,15 @@
         </form>
         <!-- Dropdown -->
     @endauth
+    @guest
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('register')}}">ユーザ登録</a>
+        </li>
+    @endguest
+    @guest
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('login')}}">ログイン</a>
+        </li>
+    @endguest
     </ul>
 </nav>

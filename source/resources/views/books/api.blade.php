@@ -2,6 +2,8 @@
 
 @section("main")
 
+@include('nav')
+
 <form action="{{route('book.search')}}" method="get">
     書籍名:<input type="text" name="keyword" size="50" value="{{ $keyword }}">&nbsp;
     <input type="submit" value="検索">
