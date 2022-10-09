@@ -21,23 +21,30 @@
     </div>
 </div>
 
-
-
 <div class="container">
+    <div class="row">
         @forelse($books as $book)
-            <div class="">
-            @if($book->url !== null)
-                <img src= "{{$book->url}}" >
-            @else
-                <img src= "{{asset('storage/images/e_others_501.png')}}" >
-            @endif
+            <div class="col-sm-2">
+                <div class="card" style="height:300px;">
+                    <div class="card-img-top mt-1">
+                        @if($book->url !== null)
+                            <img src= "{{$book->url}}" class="rounded mx-auto d-block img-fluid" style="height:150px;">
+                        @else
+                            <img src= "{{asset('storage/images/e_others_501.png')}}"
+                            class="rounded mx-auto d-block img-fluid" style="height:150px;">
+                        @endif
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <a href="{{route('book.show',$book->id)}}">{{$book->title}}</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                <a href="{{route('book.show',$book->id)}}">{{$book->title}}</a>
-            </div>
-        @empty
-        <p>登録はありません</p>
-        @endforelse
+            @empty
+            <p>登録はありません</p>
+            @endforelse
+    </div>
 </div>
 
 @endsection
