@@ -13,6 +13,10 @@ use App\Http\Requests\BookRequest;
 // Route::put('/book/{id}', [bookController::class, 'update'])->name('book.update');
 // Route::delete('/book/{id}', [bookController::class, 'destroy'])->name('book.destroy');
 
+Route::get('/test',function(){
+    return view('test');
+});
+
 Route::get('/',function(){
     return view('welcome');
 });
