@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\bookController;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\BookRequest;
-
 // Route::get('/book', [bookController::class, 'index'])->name('book.index');
 // Route::get('/book/create', [bookController::class, 'create'])->name('book.create');
 // Route::post('/book', [bookController::class, 'store'])->name('book.store');
