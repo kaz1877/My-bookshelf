@@ -1,9 +1,9 @@
-@extends('base')
+@extends('layouts.base')
 
 
 @section("main")
 
-@include('nav')
+@include('layouts.nav')
 
 @forelse($books as $book)
 <div class="container">
@@ -33,6 +33,12 @@
                 <td>{{$book->content}}</td>
             </tr>
         </table>
+        <a href="{{route('book.edit',$book->id)}}">test edit</a>
+        <form action="{{ route('book.destroy', $book->id)}}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger" onclick='return confirm("削除しますか？");'>削除</button>
+        </form>
     </div>
 </div>
 @empty

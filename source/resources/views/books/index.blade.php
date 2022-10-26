@@ -1,7 +1,7 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
-@include('nav')
+@include('layouts.nav')
 <!-- <form action="{{route('book.index')}}" method="get">
     <input type="text"  name="keyword"  placeholder="検索ワード" style="width:200px;" value="{{$keyword}}">
     @csrf

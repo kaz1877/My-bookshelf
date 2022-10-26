@@ -1,8 +1,8 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
 
-@include('nav')
+@include('layouts.nav')
 
 @forelse($books as $book)
 <div class="container">

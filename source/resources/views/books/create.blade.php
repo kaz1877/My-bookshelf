@@ -1,8 +1,8 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
 
-@include('nav')
+@include('layouts.nav')
 
 <div class="container">
     <div class="border border-1 mt-3 p-3">

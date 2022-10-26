@@ -1,8 +1,8 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
 
-@include('nav')
+@include('layouts.nav')
 
 <div class="container">
     <div class="mx-auto my-2" style="max-width: 700px;">
