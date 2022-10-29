@@ -92,7 +92,30 @@ class bookController extends Controller
 
     public function update(BookRequest $request, $id)
     {
-        Book::find($id)->update($request->all());
+        $book = Book::find($id);
+        if($request->image){
+            $dir ='images';
+            //ファイル名を指定
+            $file_name = $request->file('image')->getClientOriginalName();
+            //ファイルパスを設定
+            $file_path = 'storage/' . $dir .'/'. $file_name;
+            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
+            //DBに保存
+            $book->title = $request->title;
+            $book->author = $request->author;
+            $book->url = $file_path;
+            $book->type = $request->type;
+            $book->content = $request ->content;
+            $book->user_id = $request->user()->id;
+        }else{
+            $book->title = $request->title;
+            $book->author = $request->author;
+            $book->url = $request->url;
+            $book->type = $request->type;
+            $book->content = $request ->content;
+            $book->user_id = $request->user()->id;
+        }
+        $book->save();
         return redirect(route('book.index'));
     }
 

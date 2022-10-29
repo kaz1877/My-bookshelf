@@ -1,14 +1,14 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
-@include('nav')
-<form action="{{route('book.index')}}" method="get">
+@include('layouts.nav')
+<!-- <form action="{{route('book.index')}}" method="get">
     <input type="text"  name="keyword"  placeholder="検索ワード" style="width:200px;" value="{{$keyword}}">
     @csrf
     <input type="submit" value="検索"  style="width:100px">
-</form>
+</form> -->
 
-<div class="dropdown">
+<!-- <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     {{$sortWord}}
     </button>
@@ -19,16 +19,16 @@
             <button type="submit" class="dropdown-item" name="sort" value="3">著者：降順</button>
         </form>
     </div>
-</div>
+</div> -->
 
 <div class="container">
-    <div class="row">
+    <div class="row mt-5">
         @forelse($books as $book)
             <div class="col-sm-2">
                 <div class="card" style="height:300px;">
                     <div class="card-img-top mt-1">
                         @if($book->url !== null)
-                            <img src= "{{$book->url}}" class="rounded mx-auto d-block img-fluid" style="height:150px;">
+                            <img src= "{{asset($book->url)}}" class="rounded mx-auto d-block img-fluid" style="height:150px;">
                         @else
                             <img src= "{{asset('storage/images/e_others_501.png')}}"
                             class="rounded mx-auto d-block img-fluid" style="height:150px;">

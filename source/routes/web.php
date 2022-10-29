@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\bookController;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\BookRequest;
-
+use App\Http\Controllers\topController;
 // Route::get('/book', [bookController::class, 'index'])->name('book.index');
 // Route::get('/book/create', [bookController::class, 'create'])->name('book.create');
 // Route::post('/book', [bookController::class, 'store'])->name('book.store');
@@ -13,9 +13,11 @@ use App\Http\Requests\BookRequest;
 // Route::put('/book/{id}', [bookController::class, 'update'])->name('book.update');
 // Route::delete('/book/{id}', [bookController::class, 'destroy'])->name('book.destroy');
 
-Route::get('/',function(){
-    return view('welcome');
+Route::get('/test',function(){
+    return view('test');
 });
+
+Route::get('/',[topController::class,'index']);
 
 Route::resource('/book',bookController::class)->except(['show'])->middleware('auth');
 Route::prefix('book')->group(function(){

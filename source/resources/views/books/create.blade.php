@@ -1,14 +1,15 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
 
-@include('nav')
+@include('layouts.nav')
 
 <div class="container">
-    <div class="border border-1 mt-3 p-3">
-        <h2 >本の検索</h2>
-        <p>検索したい本のフリーワードを下記に入力してください。</p>
-        <div class="my-3 mx-auto" style="width:500px;">
+    <h2 class="mt-3">書籍の検索</h2>
+    <div class="border border-1 p-3">
+        <p>検索したい書籍のフリーワードを下記に入力してください。</p>
+        <p>検索後、書籍を選択すると下記の項目が自動で入力されます。</p>
+        <div class="my-3 mx-auto">
             <form class="mx-3" action="{{route('book.search')}}" method="GET" class="form-inline">
                 @csrf
                 <div class="input-group input-group-sm">
@@ -22,6 +23,7 @@
             </form>
         </div>
     </div>
+    <h2 class="my-3">書籍の登録</h2>
     <div class="border border-1 mt-3 px-4">
         <form action="{{route('book.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -38,7 +40,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">本の画像</label>
                 <!-- 本のサムネイル画像 -->
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     @if(isset($url))
                         @if($url !== null)
                             <img src= "{{$url}}" class="rounded mx-auto d-block img-fluid" style="width: 100px;">
@@ -48,7 +50,7 @@
                     @endif
                 </div>
                 <div class="col-sm-6">
-                    <input id="image" type="file" name="image">
+                    <input class="" id="image" type="file" name="image">
                     @error('image')
                         <p class="text-danger">{{$message}}</p>
                     @enderror

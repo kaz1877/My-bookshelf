@@ -1,8 +1,8 @@
-@extends("base")
+@extends("layouts.base")
 
 @section("main")
 
-@include('nav')
+@include('layouts.nav')
 
 <div class="container">
     <div class="mx-auto my-2" style="max-width: 700px;">
@@ -38,9 +38,6 @@
                                             @if (array_key_exists('publishedDate', $item['volumeInfo']))
                                                 <p>発売年月：{{ $item['volumeInfo']['publishedDate']}}</p>
                                             @endif
-                                            <!-- @if (array_key_exists('description', $item['volumeInfo']))
-                                                概要：{{ $item['volumeInfo']['description']}}<br>
-                                            @endif -->
                                         </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-primary">本棚に追加する。</button>

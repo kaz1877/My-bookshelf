@@ -1,16 +1,15 @@
-@extends('base')
+@extends('layouts.base')
 
 @section('title','ログイン')
 
 @section('main')
     <div class="container">
         <div class="row">
-            <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-                <h1 class="text-center"><a class="text-dark" href="/">memo</a></h1>
+            <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6 mt-3">
+                <h1 class="text-center"><a class="text-dark" href="/">My Bookshelf</a></h1>
                 <div class="card mt-3">
                     <div class="card-body text-center">
                         <h2 class="h3 card-title text-center mt-2">ログイン</h2>
-
                         @include('error_list')
                         <div class="card-text">
                             <form action="{{route('login')}}" method="POST">
