@@ -8,11 +8,11 @@
 @forelse($books as $book)
 <div class="container">
     <div class="justify-content-md-center mt-5">
-        <div>
+        <div class="">
             @if($book->url !== null)
-                <img src= "{{$book->url}}" class="rounded mx-auto d-block mb-4">
+                <img src= "{{asset($book->url)}}" class="img-fluid rounded mx-auto d-block mb-4" style="max-height:200px;">
             @else
-                <img src= "{{asset('storage/images/m_e_others_501.png')}}" class="rounded mx-auto d-block mb-4" >
+                <img src= "{{asset('storage/images/m_e_others_501.png')}}" class="img-fluid rounded mx-auto d-block mb-4" >
             @endif
         </div>
         <table class="table table-bordered">
@@ -33,17 +33,18 @@
                 <td>{{$book->content}}</td>
             </tr>
         </table>
-        <a href="{{route('book.edit',$book->id)}}">test edit</a>
-        <form action="{{ route('book.destroy', $book->id)}}" method="POST">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-danger" onclick='return confirm("削除しますか？");'>削除</button>
-        </form>
+        <div class="d-flex">
+            <a href="{{route('book.edit',$book->id)}}" class="btn btn-info">更新</a>
+            <form action="{{ route('book.destroy', $book->id)}}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger" onclick='return confirm("削除しますか？");'>削除</button>
+            </form>
+        </div>
     </div>
 </div>
 @empty
 <p>登録はありません</p>
 
 @endforelse
-<!-- <a href="#" class="btn btn-primary mb-4" onclick='window.history.back(-1);'>戻る</a> -->
 @endsection

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\bookController;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\BookRequest;
+use App\Http\Controllers\topController;
 // Route::get('/book', [bookController::class, 'index'])->name('book.index');
 // Route::get('/book/create', [bookController::class, 'create'])->name('book.create');
 // Route::post('/book', [bookController::class, 'store'])->name('book.store');
@@ -16,9 +17,7 @@ Route::get('/test',function(){
     return view('test');
 });
 
-Route::get('/',function(){
-    return view('welcome');
-});
+Route::get('/',[topController::class,'index']);
 
 Route::resource('/book',bookController::class)->except(['show'])->middleware('auth');
 Route::prefix('book')->group(function(){

@@ -28,7 +28,7 @@
                 <div class="card" style="height:300px;">
                     <div class="card-img-top mt-1">
                         @if($book->url !== null)
-                            <img src= "{{$book->url}}" class="rounded mx-auto d-block img-fluid" style="height:150px;">
+                            <img src= "{{asset($book->url)}}" class="rounded mx-auto d-block img-fluid" style="height:150px;">
                         @else
                             <img src= "{{asset('storage/images/e_others_501.png')}}"
                             class="rounded mx-auto d-block img-fluid" style="height:150px;">
