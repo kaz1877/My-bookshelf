@@ -50,42 +50,42 @@
 				</div>
 		</div>
 	</div>
-		<div class="container">
-            <div class="row my-3">
-                <div class="col-12 col-md-8">
-                    <h3>最近追加された書籍</h3>
-                    <div class="d-flex justify-content-sm-between justify-content-center flex-md-nowrap flex-wrap  my-3">
-                        @forelse($books as $book)
-                        <div class="books p-1">
-                            @if($book->url !== null)
-                                <img src= "{{asset($book->url)}}" class="rounded img-fluid">
-                            @else
-                                <img src= "{{asset('storage/images/e_others_501.png')}}"
-                                class="rounded img-fluid">
-                            @endif
-                            <p>{{$book->title}}</p>
-                        </div>
-                        @empty
-                            <p>登録はありません</p>
-                        @endforelse
+	<div class="container">
+        <div class="row my-3">
+            <div class="col-12 col-md-8">
+                <h3>最近追加された書籍</h3>
+                <div class="d-flex justify-content-sm-between justify-content-center flex-md-nowrap flex-wrap  my-3">
+                    @forelse($books as $book)
+                    <div class="books p-1">
+                        @if($book->url !== null)
+                            <img src= "{{asset($book->url)}}" class="rounded img-fluid">
+                        @else
+                            <img src= "{{asset('storage/images/e_others_501.png')}}"
+                            class="rounded img-fluid">
+                        @endif
+                        <p>{{$book->title}}</p>
                     </div>
+                    @empty
+                        <p>登録はありません</p>
+                    @endforelse
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="border mb-3 p-3">
+                    <div class="text-center">
+                        <h2 class="h3 my-3">「My Bookshelf」を使ってみましょう！</h1>
                     </div>
-                <div class="col-12 col-md-4">
-                    <div class="border mb-3 p-3">
-                        <div class="text-center">
-                            <h2 class="h3 my-3">「My Bookshelf」を使ってみましょう！</h1>
-                        </div>
-                        <div class="my-3">
-                            <a class="btn btn-block" href="{{route('register')}}" style="color:#fff; background-color:#f5b629;">新規ユーザ登録</a>
-                        </div>
-                        <div class="border-bottom mx-5"></div>
-                        <div class="my-3">
-                            <a class="btn btn-success btn-block" href="#">ゲストログイン</a>
-                        </div>
+                    <div class="my-3">
+                        <a class="btn btn-block" href="{{route('register')}}" style="color:#fff; background-color:#f5b629;">新規ユーザ登録</a>
+                    </div>
+                    <div class="border-bottom mx-5"></div>
+                    <div class="my-3">
+                        <a class="btn btn-success btn-block" href="/login/guest">ゲストログイン</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 <style>
 	.jumbotron{
         background:url(storage/images/bookShelf.jpg) center no-repeat;

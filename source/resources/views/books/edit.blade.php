@@ -6,25 +6,15 @@
 
 @forelse($books as $book)
 <div class="container">
-    <h2 class="mt-3">書籍の登録内容更新</h2>
+    <h2 class="h3 mt-3">書籍の登録内容更新</h2>
     <div class="border border-1 px-4">
         <form action="{{route('book.update',$book->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group row mt-3">
-                <label for="title" class="col-sm-2 col-form-label">題名【必須】</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="text"
-                    id="title" name="title" value="{{$book->title ?? old('title')}}">
-                    @error('title')
-                        <p class="text-danger">{{$message}}</p>
-                    @enderror
-                </div>
-            </div>
-            <div class="form-group row">
                 <label class="col-sm-2 col-form-label">本の画像</label>
                 <!-- 本のサムネイル画像 -->
-                <div class="col-sm-4 mb-2">
+                <div class="col-sm-10 mb-2">
                     @if(isset($book->url))
                         @if($book->url !== null)
                             <img src= "{{asset($book->url)}}" class="rounded mx-auto d-block img-fluid" >
@@ -32,13 +22,28 @@
                     @else
                         <img src= "{{asset('storage/images/m_e_others_501.png')}}" class="rounded mx-auto d-block img-fluid" >
                     @endif
-                </div>
-                <div class="col-sm-6">
-                    <input class="" id="image" type="file" name="image">
+                    <p class="mt-3 mb-0">
+                        現在表示されている画像から変更する場合は、画像を選択してください。<br/>
+                        ファイルを直接ドロップすることもできます。
+                    </p>
+                    <div class="custom-file mt-1">
+                        <input type="file" class="custom-file-input" id="inputFile" name="image">
+                        <label class="custom-file-label" for="inputFile" data-browse="参照">ファイルを選択</label>
+                    </div>
                     @error('image')
                         <p class="text-danger">{{$message}}</p>
                     @enderror
-                    <input type="hidden" name="url" value="{{$book->url ?? old('url')}}">
+                    <input type="hidden" name="url" value="{{$url ?? old('url')}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">題名【必須】</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text"
+                    id="title" name="title" value="{{$book->title ?? old('title')}}">
+                    @error('title')
+                        <p class="text-danger">{{$message}}</p>
+                    @enderror
                 </div>
             </div>
             <div class="form-group row">

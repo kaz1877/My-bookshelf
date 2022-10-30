@@ -5,11 +5,13 @@
 @include('layouts.nav')
 
 <div class="container">
-    <div class="mx-auto my-2" style="max-width: 700px;">
-    @if ($items == null)
-        <p class="mx-auto">書籍名を入力してください。</p>
-    @else (count($items) > 0)
-            <p class="mx-auto">「{{ $keyword }}」の検索結果</p>
+    <div class="mx-auto my-3" style="max-width: 700px;">
+        @if ($items == null)
+            <h3 class="mx-auto mb-0">書籍名を入力してください。</h3>
+            @include('layouts.form')
+        @else (count($items) > 0)
+            <h3 class="mx-auto mb-0">「{{ $keyword }}」の検索結果</h3>
+            @include('layouts.form')
     </div>
         @foreach ($items as $item)
             <div class="card mx-auto mb-3" style="max-width: 700px;">

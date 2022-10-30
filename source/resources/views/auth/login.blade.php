@@ -23,9 +23,14 @@
                                     <input class="form-control" type="password" id="password" name="password" required value="{{old('password')}}">
                                 </div>
                                 <input type="hidden" name="remember" id="remember" value="on">
-                                <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">ログイン</button>
-                            <div class="mt-0">
-                                <a href="{{route('register')}}" class="card-text">ユーザ登録はこちら</a>
+                                <button class="btn btn-block winter-neva-gradient mt-2 mb-2" type="submit">ログイン</button>
+                                <div class="border-bottom mt-3"></div>
+                                <div class="mt-3">
+                                    <a href="/login/guest" class="btn btn-block juicy-peach-gradient mt-2 mb-2">ゲストログイン</a>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="{{route('register')}}" class="card-text">ユーザー登録はこちら</a>
+                                </div>
                             </div>
                         </div>
                     </div>

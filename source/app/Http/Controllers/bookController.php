@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 
 class bookController extends Controller
 {
@@ -15,6 +16,7 @@ class bookController extends Controller
         $keyword = $request->input('keyword');
         $select = $request ->sort;
         $sortWord ="並び替え";
+        $user = Auth::user();
         $query = Book::where('user_id', \Auth::user()->id)->get();
         if(!empty($keyword)){
             $query->where('title','LIKE','%'.$keyword.'%')
@@ -38,7 +40,7 @@ class bookController extends Controller
                 $books = $query;
                 break;
         }
-        return view('books.index',compact('books','keyword','sortWord'));
+        return view('books.index',compact('user','books','keyword','sortWord'));
     }
 
     public function create(Request $request)
