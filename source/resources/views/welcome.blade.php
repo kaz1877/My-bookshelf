@@ -80,7 +80,7 @@
                     </div>
                     <div class="border-bottom mx-5"></div>
                     <div class="my-3">
-                        <a class="btn btn-success btn-block" href="#">ゲストログイン</a>
+                        <a class="btn btn-success btn-block" href="/login/guest">ゲストログイン</a>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\bookController;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\BookRequest;
 use App\Http\Controllers\topController;
+use App\Http\Controllers\Auth\LoginController;
 // Route::get('/book', [bookController::class, 'index'])->name('book.index');
 // Route::get('/book/create', [bookController::class, 'create'])->name('book.create');
 // Route::post('/book', [bookController::class, 'store'])->name('book.store');
@@ -28,4 +29,5 @@ Route::prefix('book')->group(function(){
 });
 
 Auth::routes();
+Route::get('/login/guest',[LoginController::class,'guestLogin']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
