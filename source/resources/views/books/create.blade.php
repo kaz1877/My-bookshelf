@@ -9,17 +9,7 @@
         <p>検索したい書籍のフリーワードを下記に入力してください。</p>
         <p>検索後、書籍を選択すると下記の項目が自動で入力されます。</p>
         <div class="my-2 mx-auto">
-            <form class="mx-3" action="{{route('book.search')}}" method="GET" class="form-inline">
-                @csrf
-                <div class="input-group input-group-sm">
-                    <input type="search" id="search" name="keyword" class="form-control border mt-1" placeholder="本をさがす">
-                    <div class="input-group-append">
-                        <button class="btn border bg-white text-teal1 mt-1" type="submit" id="search">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+            @include('layouts.form')
         </div>
     </div>
     <h2 class="h3 mt-3 mb-0">書籍の登録</h2>
@@ -62,7 +52,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="author" class="col-sm-2 col-form-label">著者【必須】</label>
+                <label for="author" class="col-sm-2 col-form-label">著者</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="text"
                     id="author" name="author" value="{{$author ?? old('author')}}">
@@ -72,7 +62,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="type" class="col-sm-2 col-form-label">カテゴリー【必須】</label>
+                <label for="type" class="col-sm-2 col-form-label">カテゴリー</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="text" name="type"
                     id="type" value="{{old('type')}}">

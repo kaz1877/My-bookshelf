@@ -16,9 +16,9 @@ class BookTable extends Migration
         Schema::create('books',function(Blueprint $table){
             $table -> bigIncrements('id');
             $table -> string('title',100);
-            $table -> string('author',100);
+            $table -> string('author',100)->nullable();
             $table -> string('url',1000)->nullable();
-            $table -> string('type',50);
+            $table -> string('type',50)->nullable();
             $table -> text('content')->nullable();
             $table -> unsignedBigInteger('user_id');
             $table -> foreign('user_id')->references('id')->on('users');
