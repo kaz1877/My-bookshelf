@@ -22,8 +22,5 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.10.0",
         "vue-template-compiler": "^2.6.12"
-    },
-    "engines": {
-        "node": "14.x"
     }
 }
