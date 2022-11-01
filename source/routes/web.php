@@ -6,19 +6,9 @@ use App\Http\Controllers\ApiController;
 use App\Http\Requests\BookRequest;
 use App\Http\Controllers\topController;
 use App\Http\Controllers\Auth\LoginController;
-// Route::get('/book', [bookController::class, 'index'])->name('book.index');
-// Route::get('/book/create', [bookController::class, 'create'])->name('book.create');
-// Route::post('/book', [bookController::class, 'store'])->name('book.store');
-// Route::get('/book/{id}', [bookController::class, 'show'])->name('book.show');
-// Route::get('/book/{id}/edit', [bookController::class, 'edit'])->name('book.edit');
-// Route::put('/book/{id}', [bookController::class, 'update'])->name('book.update');
-// Route::delete('/book/{id}', [bookController::class, 'destroy'])->name('book.destroy');
 
-Route::get('/test',function(){
-    return view('test');
-});
 
-Route::get('/',[topController::class,'index']);
+Route::get('/',[topController::class,'index'])->name('home');
 
 Route::resource('/book',bookController::class)->except(['show'])->middleware('auth');
 Route::prefix('book')->group(function(){
@@ -30,4 +20,3 @@ Route::prefix('book')->group(function(){
 
 Auth::routes();
 Route::get('/login/guest',[LoginController::class,'guestLogin']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,34 +13,9 @@ class bookController extends Controller
 
     public function index(Request $request)
     {
-        $keyword = $request->input('keyword');
-        $select = $request ->sort;
-        $sortWord ="並び替え";
         $user = Auth::user();
-        $query = Book::where('user_id', \Auth::user()->id)->get();
-        if(!empty($keyword)){
-            $query->where('title','LIKE','%'.$keyword.'%')
-                ->orWhere('author','LIKE','%'.$keyword.'%')
-                ->orWhere('publisher','LIKE','%'.$keyword.'%');
-        }
-        switch($select){
-            case '1':
-                $books = $query->orderBy('title','asc')->get();
-                $sortWord ="タイトル";
-                break;
-            case '2':
-                $books = $query->orderBy('publisher','asc')->get();
-                $sortWord="著者：昇順";
-                break;
-            case '3':
-                $books = $query->orderBy('publisher','desc')->get();
-                $sortWord="著者：降順";
-                break;
-            default:
-                $books = $query;
-                break;
-        }
-        return view('books.index',compact('user','books','keyword','sortWord'));
+        $books = Book::where('user_id', \Auth::user()->id)->get();
+        return view('books.index',compact('user','books'));
     }
 
     public function create(Request $request)
@@ -59,22 +34,17 @@ class bookController extends Controller
             $file_name = $request->file('image')->getClientOriginalName();
             //ファイルパスを設定
             $file_path = 'storage/' . $dir .'/'. $file_name;
-            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
             //DBに保存
-            $book->title = $request->title;
-            $book->author = $request->author;
+            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
             $book->url = $file_path;
-            $book->type = $request->type;
-            $book->content = $request ->content;
-            $book->user_id = $request->user()->id;
         }else{
-            $book->title = $request->title;
-            $book->author = $request->author;
             $book->url = $request->url;
-            $book->type = $request->type;
-            $book->content = $request ->content;
-            $book->user_id = $request->user()->id;
         }
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->type = $request->type;
+        $book->content = $request ->content;
+        $book->user_id = $request->user()->id;
         $book->save();
         return redirect(route("book.index"));
     }
@@ -101,22 +71,17 @@ class bookController extends Controller
             $file_name = $request->file('image')->getClientOriginalName();
             //ファイルパスを設定
             $file_path = 'storage/' . $dir .'/'. $file_name;
-            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
             //DBに保存
-            $book->title = $request->title;
-            $book->author = $request->author;
+            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
             $book->url = $file_path;
-            $book->type = $request->type;
-            $book->content = $request ->content;
-            $book->user_id = $request->user()->id;
         }else{
-            $book->title = $request->title;
-            $book->author = $request->author;
             $book->url = $request->url;
-            $book->type = $request->type;
-            $book->content = $request ->content;
-            $book->user_id = $request->user()->id;
         }
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->type = $request->type;
+        $book->content = $request ->content;
+        $book->user_id = $request->user()->id;
         $book->save();
         return redirect(route('book.index'));
     }
@@ -146,7 +111,7 @@ class bookController extends Controller
             // 書籍情報部分を取得
             $items = $bodyArray['items'];
         }
-        return view('books.api', compact('items','keyword'));
+        return view('books.search', compact('items','keyword'));
     }
 
 }
