@@ -101,7 +101,7 @@ class bookController extends Controller
             // 日本語で検索するためにURLエンコードする
             $title = urlencode($request->keyword);
             // APIを発行するURLを生成
-            $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $title . '&country=JP&maxResults=10';
+            $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $title . '&country=JP&maxResults=20';
             $client = new Client();
             // GETでリクエスト実行
             $response = $client->request("GET", $url);
