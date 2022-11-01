@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="author" class="col-sm-2 col-form-label">著者【必須】</label>
+                <label for="author" class="col-sm-2 col-form-label">著者</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="text"
                     id="author" name="author" value="{{$book->author ?? old('author')}}">
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="type" class="col-sm-2 col-form-label">カテゴリー【必須】</label>
+                <label for="type" class="col-sm-2 col-form-label">カテゴリー</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="text" name="type"
                     id="type" value="{{$book->type ?? old('type')}}">
@@ -88,4 +88,5 @@
 @empty
 <p>登録はありません</p>
 @endforelse
+@include('layouts.footer')
 @endsection

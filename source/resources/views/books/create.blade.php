@@ -9,7 +9,7 @@
         <p>検索したい書籍のフリーワードを下記に入力してください。</p>
         <p>検索後、書籍を選択すると下記の項目が自動で入力されます。</p>
         <div class="my-2 mx-auto">
-            @include('layouts.form')
+            @include('layouts.search_form')
         </div>
     </div>
     <h2 class="h3 mt-3 mb-0">書籍の登録</h2>
@@ -89,4 +89,5 @@
         </form>
     </div>
 </div>
+@include('layouts.footer')
 @endsection

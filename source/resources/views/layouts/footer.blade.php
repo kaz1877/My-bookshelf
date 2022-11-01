@@ -1,4 +1,4 @@
-<footer class="footer mx-auto">
+<footer class="footer">
     <nav class="navbar-expand navbar-dark p-1">
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto">
@@ -7,10 +7,7 @@
                     <a class="nav-link" href="{{route('book.index')}}">ホーム</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('book.create')}}">本を登録する</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">testest</a>
+                    <a class="nav-link" href="{{route('home')}}">My bookshelfとは</a>
                 </li>
                 @endauth
                 @guest

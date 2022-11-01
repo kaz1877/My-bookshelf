@@ -47,4 +47,5 @@
 <p>登録はありません</p>
 
 @endforelse
+@include('layouts.footer')
 @endsection

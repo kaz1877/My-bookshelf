@@ -15,13 +15,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('book.create')}}">本を登録する</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">testest</a>
-                </li>
             </ul>
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    @include('layouts.form')
+                    @include('layouts.search_form')
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

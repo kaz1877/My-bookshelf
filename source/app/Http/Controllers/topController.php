@@ -9,6 +9,6 @@ class topController extends Controller
 {
     public function index(){
         $books = Book::orderBy('id','DESC')->take(5)->get();
-        return view('welcome',compact('books'));
+        return view('home',compact('books'));
     }
 }
