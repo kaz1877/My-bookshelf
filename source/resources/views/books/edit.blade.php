@@ -20,7 +20,8 @@
                             <img src= "{{asset($book->url)}}" class="rounded mx-auto d-block img-fluid" >
                         @endif
                     @else
-                        <img src= "{{asset('storage/images/m_e_others_501.png')}}" class="rounded mx-auto d-block img-fluid" >
+                        <img src= "https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721513/m_e_others_501_rzqxyy.png"
+                        class="rounded mx-auto d-block img-fluid" >
                     @endif
                     <p class="mt-3 mb-0">
                         現在表示されている画像から変更する場合は、画像を選択してください。<br/>

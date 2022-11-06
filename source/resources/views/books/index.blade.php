@@ -13,7 +13,7 @@
                         @if($book->url !== null)
                             <img src= "{{asset($book->url)}}" class="rounded mx-auto d-block img-fluid" style="height:150px;">
                         @else
-                            <img src= "{{asset('storage/images/e_others_501.png')}}"
+                            <img src= "https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721513/m_e_others_501_rzqxyy.png"
                             class="rounded mx-auto d-block img-fluid" style="height:150px;">
                         @endif
                         {{$book->title}}

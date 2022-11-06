@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class bookController extends Controller
 {
@@ -29,14 +30,8 @@ class bookController extends Controller
     public function store(BookRequest $request,Book $book)
     {
         if($request->image){
-            $dir ='images';
-            //ファイル名を指定
-            $file_name = $request->file('image')->getClientOriginalName();
-            //ファイルパスを設定
-            $file_path = 'storage/' . $dir .'/'. $file_name;
-            //DBに保存
-            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
-            $book->url = $file_path;
+            $upload_url = Cloudinary::upload($request->image->getRealPath())->getSecurePath();
+            $book->url = $upload_url;
         }else{
             $book->url = $request->url;
         }
@@ -66,14 +61,8 @@ class bookController extends Controller
     {
         $book = Book::find($id);
         if($request->image){
-            $dir ='images';
-            //ファイル名を指定
-            $file_name = $request->file('image')->getClientOriginalName();
-            //ファイルパスを設定
-            $file_path = 'storage/' . $dir .'/'. $file_name;
-            //DBに保存
-            $request -> file('image')-> storeAs('public/' . $dir,$file_name);
-            $book->url = $file_path;
+            $upload_url = Cloudinary::upload($request->image->getRealPath())->getSecurePath();
+            $book->url = $upload_url;
         }else{
             $book->url = $request->url;
         }
