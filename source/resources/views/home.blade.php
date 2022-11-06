@@ -28,7 +28,8 @@
 				<div class="d-flex justify-content-center my-3">
 					<div class="border border-info p-2 m-2" style="width:250px;">
 						<div class="d-flex justify-content-center pb-3">
-							<img src="{{asset('storage/images/search_icon.png')}}" class="img-fluid" style="height: 100px;">
+							<img src="https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721518/search_icon_zljpqr.png"
+							class="img-fluid" style="height: 100px;">
 						</div>
 						<h3 class="h5 pb-3">1.持っている本を検索しましょう</h3>
 						<p>
@@ -38,7 +39,8 @@
 					</div>
 					<div class="border border-info p-2 m-2" style="width:250px;">
 						<div class="d-flex justify-content-center pb-3">
-							<img src="{{asset('storage/images/bookshelf_icon.png')}}" class="img-fluid" style="height: 100px;">
+							<img src="https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721508/bookshelf_icon_nemmi2.png"
+							class="img-fluid" style="height: 100px;">
 						</div>
 						<h3 class="h5">2.登録した本を管理しましょう</h3>
 						<p>
@@ -87,7 +89,7 @@
     </div>
 <style>
 	.jumbotron{
-        background:url(storage/images/bookShelf.jpg) center no-repeat;
+        background:url(https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721433/bookShelf_wdfbjn.jpg) center no-repeat;
         background-size: cover;
         margin:0;
         height:250px;

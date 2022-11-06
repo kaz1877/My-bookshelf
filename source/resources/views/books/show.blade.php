@@ -12,7 +12,8 @@
             @if($book->url !== null)
                 <img src= "{{asset($book->url)}}" class="img-fluid rounded mx-auto d-block mb-4" style="max-height:200px;">
             @else
-                <img src= "{{asset('storage/images/m_e_others_501.png')}}" class="img-fluid rounded mx-auto d-block mb-4" >
+                <img src= "https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721513/m_e_others_501_rzqxyy.png"
+                class="img-fluid rounded mx-auto d-block mb-4" >
             @endif
         </div>
         <table class="table table-bordered">
