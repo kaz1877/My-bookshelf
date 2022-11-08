@@ -29,9 +29,9 @@
 					<div class="border border-info p-2 m-2" style="width:250px;">
 						<div class="d-flex justify-content-center pb-3">
 							<img src="https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721518/search_icon_zljpqr.png"
-							class="img-fluid" style="height: 100px;">
+							class="img-fluid" style="height: 100px;" alt="search">
 						</div>
-						<h3 class="h5 pb-3">1.持っている本を検索しましょう</h3>
+						<h3 class="h5">1.持っている本を検索しましょう</h3>
 						<p>
 							持っている本、お気に入りの本を検索して登録できます。
 							手動で入力して登録することもできます。
@@ -40,7 +40,7 @@
 					<div class="border border-info p-2 m-2" style="width:250px;">
 						<div class="d-flex justify-content-center pb-3">
 							<img src="https://res.cloudinary.com/dgsnxc8gp/image/upload/v1667721508/bookshelf_icon_nemmi2.png"
-							class="img-fluid" style="height: 100px;">
+							class="img-fluid" style="height: 100px;" alt="bookshelf">
 						</div>
 						<h3 class="h5">2.登録した本を管理しましょう</h3>
 						<p>
