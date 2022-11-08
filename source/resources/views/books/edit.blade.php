@@ -34,7 +34,7 @@
                     @error('image')
                         <p class="text-danger">{{$message}}</p>
                     @enderror
-                    <input type="hidden" name="url" value="{{$url ?? old('url')}}">
+                    <input type="hidden" name="url" value="{{$book->url ?? old('url')}}">
                 </div>
             </div>
             <div class="form-group row">
