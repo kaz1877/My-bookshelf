@@ -26,7 +26,7 @@ class BookRequest extends FormRequest
             'author' => 'nullable|max:100|regex:/^[^#<>^;_]*$/',
             'type' => 'nullable|max:50|regex:/^[^#<>^;_]*$/',
             'content' => 'nullable|max:2000|regex:/^[^#<>^;_]*$/',
-            'image' => 'image'
+            'image' => 'image',
         ];
     }
 
@@ -40,11 +40,9 @@ class BookRequest extends FormRequest
             'author.regex' => '使用禁止記号#<>^;_を消してください。',
             'type.max' => 'カテゴリーは50文字以下で入力してください。',
             'type.regex' => '使用禁止記号#<>^;_を消してください。',
-            'content.max' =>'コメントは2000文字以下で入力してください。',
+            'content.max' => 'コメントは2000文字以下で入力してください。',
             'content.regex' => '使用禁止記号#<>^;_を消してください。',
-            'image' => 'jpg,png,bmp,gif,svg,webpの形式で登録してください。'
+            'image' => 'jpg,png,bmp,gif,svg,webpの形式で登録してください。',
         ];
     }
-
-
 }
