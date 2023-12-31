@@ -1,16 +1,17 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '../pages/HelloWorld';
+import * as vueRouter from "vue-router";
+import HelloWorld from '../pages/HelloWorld.vue';
 
-Vue.use(Router)
+const routes = [
+  {
+    path: '/',
+    name: 'HelloWorld',
+    component: HelloWorld
+  },
+]
 
-export default new Router({
-  mode: 'history', //追加
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+const router = vueRouter.createRouter({
+  history: vueRouter.createWebHistory(),
+  routes
 })
+
+export default router

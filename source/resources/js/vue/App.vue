@@ -6,8 +6,7 @@ import { ref, onMounted } from 'vue';
     <div id="container">
         <header></header>
         <main>
-            <!-- <RouterView /> -->
-            test
+            <RouterView />
         </main>
         <footer></footer>
     </div>
