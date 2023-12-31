@@ -14,11 +14,11 @@ services:
     build: ./docker/php
     volumes:
       - ./source:/var/www/
-    # 追記
+    ports:
+      - 5173:5173
     depends_on:
       - mysql
 
-  # 追記
   mysql:
     image: mysql:8.0.26
     environment:
@@ -26,13 +26,11 @@ services:
       MYSQL_DATABASE: php_db
       MYSQL_USER: phper
       MYSQL_PASSWORD: password
-    command:
-      mysqld --default-authentication-plugin=mysql_native_password
+    command: mysqld --default-authentication-plugin=mysql_native_password
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
 
-  # 追記
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
